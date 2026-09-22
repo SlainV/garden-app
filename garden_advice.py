@@ -1,6 +1,36 @@
-# Hardcoded values for the season and plant type
-season = "summer"  # TODO: Replace with input() to allow user interaction.
-plant_type = "flower"  # TODO: Replace with input() to allow user interaction.
+
+#  Fix for issue # 1 -Replace with input() to allow user interaction.
+needs_season = False
+while not needs_season:
+    print("Select season:")
+    print("1. Summer")
+    print("2. Winter")
+    season_selection = input()
+
+    if (season_selection == "1"):
+        season = "summer"
+        needs_season = True
+    elif (season_selection == "2"):
+        season = "winter"
+        needs_season = True
+    else:
+        print("Invalid input. Please select 1 or 2.")
+
+needs_plant = False
+while not needs_plant:
+    print("Select plant:")
+    print("1. Flower")
+    print("2. Vegetable")
+    plant_selection = input()
+
+    if (plant_selection == "1"):
+        plant_type = "flower"
+        needs_plant = True
+    elif (plant_selection == "2"):
+        plant_type = "vegetable"
+        needs_plant = True
+    else:
+        print("Invalid input. Please select 1 or 2.")
 
 # Variable to hold gardening advice
 advice = ""
