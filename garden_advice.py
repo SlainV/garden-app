@@ -1,7 +1,7 @@
 
 #  Fix for issue # 1 -Replace with input() to allow user interaction.
 needs_season = False
-while not needs_season:
+while not needs_season:  # Prints options for the user.
     print("Select season:")
     print("1. Summer")
     print("2. Winter")
@@ -35,21 +35,25 @@ while not needs_plant:
 # Variable to hold gardening advice
 advice = ""
 
-# Determine advice based on the season
-if season == "summer":
-    advice += "Water your plants regularly and provide some shade.\n"
-elif season == "winter":
-    advice += "Protect your plants from frost with covers.\n"
-else:
-    advice += "No advice for this season.\n"
+# Fix for issue # 3 - Store advice in a
+# Dictionary for multiple plants and seasons
+advice_data = {
+    "season": {
+        "summer": "Water your plants regularly and provide some shade.",
+        "winter": "Protect your plants from frost with covers."
+    },
+    "plant": {  
+        "flower": "Use fertilizer to encourage blooms.",
+        "vegetable": "Keep an eye out for pests!"
+    }
+}
 
-# Determine advice based on the plant type
-if plant_type == "flower":
-    advice += "Use fertiliser to encourage blooms."
-elif plant_type == "vegetable":
-    advice += "Keep an eye out for pests!"
-else:
-    advice += "No advice for this type of plant."
+# Determine advice based on the season.
+# Season and plant type are used as keys to access the advice.
+advice = advice_data["season"].get(season, "No advice for this season") +\
+     "\n" + advice_data["plant"].get(plant_type, "No advice for this "
+                                     "type of plant.")
+
 
 # Print the generated advice
 print(advice)
